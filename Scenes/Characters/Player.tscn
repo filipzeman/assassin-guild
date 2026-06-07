@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://3vt6rd1xlhyi"]
+
+[ext_resource type="Script" uid="uid://1ebq8vq7kjt8" path="res://Scenes/Characters/player.gd" id="1_0el0d"]
+[ext_resource type="Texture2D" uid="uid://xc5a8wpj0atk" path="res://Art/Characters/Player/south.png" id="1_gjot8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ytf4i"]
+radius = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2qn6y"]
+radius = 30.0
+
+[node name="Player" type="CharacterBody2D" unique_id=964614503]
+script = ExtResource("1_0el0d")
+
+[node name="AnimatedSprite2d" type="Sprite2D" parent="." unique_id=1063005192]
+texture = ExtResource("1_gjot8")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1151076300]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=377002202]
+position = Vector2(0, 25)
+shape = SubResource("CircleShape2D_ytf4i")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=822863086]
+zoom = Vector2(2, 2)
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1892755158]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1989530826]
+shape = SubResource("CircleShape2D_2qn6y")

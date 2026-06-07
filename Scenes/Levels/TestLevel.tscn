@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bbwcdnctu35cj"]
+
+[ext_resource type="Texture2D" uid="uid://ddrgl3pnk5s7x" path="res://icon.svg" id="1_ss4xl"]
+[ext_resource type="PackedScene" uid="uid://3vt6rd1xlhyi" path="res://Scenes/Characters/Player.tscn" id="2_7e5cw"]
+[ext_resource type="PackedScene" uid="uid://fypssfnbf4np" path="res://Scenes/Characters/Guard.tscn" id="2_ytf4i"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0el0d"]
+vertices = PackedVector2Array(1131.0938, 629, 19.890625, 629.9922, 13.109375, 17.960938, 1136.8984, 14.03125)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1141, 639, 10, 640, 3, 8, 1147, 4)])
+
+[node name="TestLevel" type="Node2D" unique_id=1368314696]
+
+[node name="Ground" type="TileMapLayer" parent="." unique_id=1690296474]
+
+[node name="Buildings" type="Node2D" parent="." unique_id=1739855295]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=70818937]
+navigation_polygon = SubResource("NavigationPolygon_0el0d")
+
+[node name="Characters" type="Node2D" parent="." unique_id=888669481]
+
+[node name="Guard" parent="Characters" unique_id=2095388026 node_paths=PackedStringArray("patrol_a", "patrol_b") instance=ExtResource("2_ytf4i")]
+position = Vector2(712, 86)
+patrol_a = NodePath("../../SpawnPoints/PatrolPointA")
+patrol_b = NodePath("../../SpawnPoints/PatrolPointB")
+
+[node name="Player" parent="Characters" unique_id=964614503 instance=ExtResource("2_7e5cw")]
+position = Vector2(220, 211)
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=910804064]
+
+[node name="PatrolPointA" type="Marker2D" parent="SpawnPoints" unique_id=278127100]
+position = Vector2(178, 383)
+
+[node name="PatrolPointB" type="Marker2D" parent="SpawnPoints" unique_id=262126336]
+position = Vector2(883, 160)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1088703681]
+position = Vector2(483, 259)
+texture = ExtResource("1_ss4xl")

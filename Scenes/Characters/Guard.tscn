@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://fypssfnbf4np"]
+
+[ext_resource type="Script" uid="uid://2utduiqu54nt" path="res://Scenes/Characters/guard.gd" id="1_h0o55"]
+[ext_resource type="Texture2D" uid="uid://vkqykdtyjq1t" path="res://Art/Characters/Guard/south.png" id="2_d1rln"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7e5cw"]
+radius = 20.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2qn6y"]
+
+[node name="Guard" type="CharacterBody2D" unique_id=2095388026]
+script = ExtResource("1_h0o55")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1153455515]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1866505463]
+position = Vector2(0, 22)
+shape = SubResource("CircleShape2D_7e5cw")
+
+[node name="VisionCone" type="Area2D" parent="." unique_id=1495584451]
+
+[node name="DetectionTimer" type="Timer" parent="." unique_id=994762340]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2068229558]
+sprite_frames = SubResource("SpriteFrames_2qn6y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=865298796]
+texture = ExtResource("2_d1rln")
